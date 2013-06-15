@@ -1,0 +1,24 @@
+%center
+  %h1 Availability by Property
+
+%table.table
+  %tr
+    %th Property
+    %th= @day1
+    %th= @day2
+    %th= @day3
+    %th= @day4
+    %th= @day5
+    %th= @day6
+    %th= @day7
+  - @properties.each do |property|
+    %tr
+      %td= property.name
+      - availability = property.availabilities.collect(&:available_on)
+      %td= "X" if !availability.include?(@day1)
+      %td= "X" if !availability.include?(@day2)
+      %td= "X" if !availability.include?(@day3)
+      %td= "X" if !availability.include?(@day4)
+      %td= "X" if !availability.include?(@day5)
+      %td= "X" if !availability.include?(@day6)
+      %td= "X" if !availability.include?(@day7)

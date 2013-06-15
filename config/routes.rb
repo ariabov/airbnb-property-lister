@@ -1,4 +1,7 @@
 AirbnbPropertyLister::Application.routes.draw do
+  resources :properties, only: :index
+
+  root :to => 'properties#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
